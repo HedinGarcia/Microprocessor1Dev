@@ -2,7 +2,7 @@
 
 ## INEL 4206 - HW1
 
-Repository for the first assignment of the Microprocessors I course.
+Repository for the assignments of the Microprocessors I course.
 
 - Description: Architecture, organization and operation of microprocessors and their supporting devices; design of microprocessor-based systems 
 - Textbook: *Introduction to Embedded Systems Using Microcontrollers and the MSP430*
