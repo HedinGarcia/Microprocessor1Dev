@@ -1,7 +1,5 @@
 # Microprocessors I
 
-## INEL 4206 - HW1
-
 Repository for the assignments of the Microprocessors I course.
 
 - Description: Architecture, organization and operation of microprocessors and their supporting devices; design of microprocessor-based systems 
