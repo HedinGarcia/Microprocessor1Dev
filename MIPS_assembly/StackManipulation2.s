@@ -27,13 +27,13 @@ lw $t4, ($t0)       # $t4 = array[n]
 subu $sp, $sp, 4
 sw $t4, ($sp)       # push array[n] to stack    
 
-add $t1, $t1, 1      # index++
+add $t1, $t1, 1     # index++
 add $t0, $t0, 4     # next element of array
 
 blt $t1, $t2, pushArrayToStack
 
-# # Pop and print the first n numbers (input of user) of the array.
-# # Argument: $a0 - number of items to pop and print from stack
+# Pop and print the first n numbers (input of user) of the array.
+# Argument: $a0 - number of items to pop and print from stack
 jal popAndPrint
 j exit
 
@@ -61,43 +61,31 @@ syscall
 popAndPrint:
 move $t3, $a0       # number of elements to pop
 li $t4, 0           # index
-lw $t5, length       # length of array
+lw $t5, length      # length of array
 
 blt $t3, $t5, updateLength
 j unchangelength
 updateLength:
 move $t5, $t3       # length = number to pop (will be less than 30)
 
-li $v0, 1
-move $a0, $t5
-syscall
-li $v0, 11
-la $a0, 44
-syscall
-li $v0, 11
-la $a0, 44
-syscall
-
 unchangelength:
 popLoop:
 lw $t6, ($sp)
 addu $sp, $sp, 4    # pop of stack
 
-printElement:
+# Print element
 li $v0, 1
 move $a0, $t6
 syscall
 
 add $t4, $t4, 1     # index++
 beq $t4, $t5 return # check if the last number has been reached
-blt $t4, $t5 printcommaAndSpace
 
-printcommaAndSpace:
-# Comma
+# Print Comma
 li $v0, 11
 la $a0, 44
 syscall
-# Space
+# Print Space
 li $v0, 11
 la $a0, 32
 syscall
